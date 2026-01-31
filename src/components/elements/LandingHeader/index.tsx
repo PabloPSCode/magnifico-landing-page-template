@@ -155,7 +155,7 @@ const CTA: React.FC<CTAProps> = ({ className, label, ...rest }) => {
     <button
       {...rest}
       className={clsx(
-        "inline-flex items-center justify-center rounded-lg",
+        "w-full inline-flex items-center justify-center rounded-lg",
         "bg-primary-500 font-secondary hover:opacity-90",
         "px-4 py-2 text-xs sm:text-sm font-semibold text-white",
         className
