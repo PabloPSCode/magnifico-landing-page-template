@@ -1,38 +1,38 @@
 "use client";
 
-import { useState } from "react";
-import LandingHeader from "@/components/elements/LandingHeader";
-import Footer from "@/components/elements/Footer";
-import { HeroSection } from "@/components/elements/HeroSection";
-import { Section } from "@/components/elements/Section";
-import Title from "@/components/typography/Title";
-import Subtitle from "@/components/typography/Subtitle";
-import Paragraph from "@/components/typography/Paragraph";
-import Phrase from "@/components/typography/Phrase";
+import FadeContainer from "@/components/animations-and-loading/FadeContainer";
+import RevealContainer from "@/components/animations-and-loading/RevealContainer";
+import ZoomContainer from "@/components/animations-and-loading/ZoomContainer";
 import Button from "@/components/buttons/Button";
-import BrandMarquee from "@/components/marketing/BrandMarquee";
 import InfoCard from "@/components/cards/InfoCard";
 import MetricsCard from "@/components/cards/MetricsCard";
 import TestimonialCard from "@/components/cards/TestimonialCard";
-import TabSelector from "@/components/miscellaneous/TabSelector";
+import Footer from "@/components/elements/Footer";
+import { HeroSection } from "@/components/elements/HeroSection";
+import LandingHeader from "@/components/elements/LandingHeader";
+import { Section } from "@/components/elements/Section";
 import NewsletterForm from "@/components/forms/forms/NewsletterForm";
-import FadeContainer from "@/components/animations-and-loading/FadeContainer";
-import ZoomContainer from "@/components/animations-and-loading/ZoomContainer";
-import RevealContainer from "@/components/animations-and-loading/RevealContainer";
+import BrandMarquee from "@/components/marketing/BrandMarquee";
+import TabSelector from "@/components/miscellaneous/TabSelector";
+import Paragraph from "@/components/typography/Paragraph";
+import Phrase from "@/components/typography/Phrase";
+import Subtitle from "@/components/typography/Subtitle";
+import Title from "@/components/typography/Title";
 import {
   ArrowRightIcon,
   ChartLineUpIcon,
   CheckIcon,
   CodeIcon,
   GithubLogoIcon,
-  LinkedinLogoIcon,
   LightningIcon,
+  LinkedinLogoIcon,
   PlayCircleIcon,
   RocketLaunchIcon,
   ShieldCheckIcon,
   UsersThreeIcon,
   XLogoIcon,
 } from "@phosphor-icons/react";
+import { useState } from "react";
 
 import {
   devoxBrandLogos,
@@ -73,9 +73,7 @@ type SocialIconKey = keyof typeof socialIconMap;
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState(
-    devoxProcessTabs[0]?.label ?? ""
-  );
+  const [activeTab, setActiveTab] = useState(devoxProcessTabs[0]?.label ?? "");
   const currentYear = new Date().getFullYear();
 
   const handleMobileToggle = (open: boolean) => setMobileMenuOpen(open);
@@ -346,6 +344,7 @@ export default function Home() {
                 <Button
                   label="Quero melhorar meu fluxo"
                   className="bg-white text-secondary-700 hover:bg-white/90"
+                  variant="outlined"
                 />
               </div>
               <div className="rounded-2xl border border-white/20 bg-white/10 p-6">
@@ -359,7 +358,10 @@ export default function Home() {
         </Section>
 
         <Section size="middle" sectionClassName="items-start">
-          <div id="processo" className="w-full grid lg:grid-cols-2 gap-12 items-center">
+          <div
+            id="processo"
+            className="w-full grid lg:grid-cols-2 gap-12 items-center"
+          >
             <div className="flex flex-col gap-6">
               <Subtitle
                 content="Processo que dá visibilidade do início ao fim"
@@ -375,7 +377,7 @@ export default function Home() {
                 onTabChange={handleTabChange}
                 activeTabContent={(tabLabel) => {
                   const tab = devoxProcessTabs.find(
-                    (item) => item.label === tabLabel
+                    (item) => item.label === tabLabel,
                   );
                   if (!tab) return null;
                   return (
@@ -508,6 +510,7 @@ export default function Home() {
               <Button
                 label="Agendar uma conversa"
                 className="bg-white text-primary-700 hover:bg-white/90"
+                variant="outlined"
               />
             </div>
           </div>
