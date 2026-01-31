@@ -1,0 +1,12 @@
+<svg width="220" height="64" viewBox="0 0 220 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="devox-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2F5BFF" />
+      <stop offset="1" stop-color="#6C3DF4" />
+    </linearGradient>
+  </defs>
+  <rect x="4" y="6" width="52" height="52" rx="14" fill="url(#devox-grad)" />
+  <path d="M22 38c0-8 6-14 14-14h6v28h-6c-8 0-14-6-14-14z" fill="#ffffff" />
+  <circle cx="36" cy="28" r="4" fill="#ffffff" />
+  <text x="72" y="40" font-family="Montserrat, Arial, sans-serif" font-size="28" font-weight="700" fill="#0F1A3D">Devox</text>
+</svg>
