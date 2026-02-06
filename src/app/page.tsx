@@ -237,7 +237,7 @@ export default function Home() {
 
         <Section size="middle" sectionClassName="items-start">
           <div id="servicos" className="w-full grid lg:grid-cols-2 gap-12">
-            <RevealContainer className="w-full">
+            <RevealContainer once className="w-full">
               <div className="grid sm:grid-cols-2 gap-4">
                 {devoxShowcaseCards.map((card) => {
                   const Icon = showcaseIconMap[card.icon as ShowcaseIconKey];
@@ -252,7 +252,7 @@ export default function Home() {
                 })}
               </div>
             </RevealContainer>
-            <FadeContainer className="flex flex-col gap-4">
+            <FadeContainer once className="flex flex-col gap-4">
               <Subtitle
                 content="Aproveite seu tempo criando produtos"
                 className="text-2xl sm:text-3xl"
@@ -274,7 +274,7 @@ export default function Home() {
 
         <Section size="middle" sectionClassName="items-start">
           <div className="w-full grid lg:grid-cols-2 gap-12 items-center">
-            <FadeContainer className="flex flex-col gap-4">
+            <FadeContainer once className="flex flex-col gap-4">
               <Subtitle
                 content="Tenha todas as ferramentas que seu time precisa"
                 className="text-2xl sm:text-3xl"
@@ -301,7 +301,7 @@ export default function Home() {
               />
             </FadeContainer>
 
-            <ZoomContainer className="w-full flex justify-center">
+            <ZoomContainer once className="w-full flex justify-center">
               <div className="relative h-72 w-72 sm:h-80 sm:w-80">
                 <div className="absolute inset-0 rounded-full border border-primary-200/70 bg-white/80" />
                 <div className="absolute inset-8 rounded-full border border-primary-200/70" />
