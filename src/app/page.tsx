@@ -8,6 +8,7 @@ import InfoCard from "@/components/cards/InfoCard";
 import MetricsCard from "@/components/cards/MetricsCard";
 import TestimonialCard from "@/components/cards/TestimonialCard";
 import Footer from "@/components/elements/Footer";
+import HeroOrbitalCard from "@/components/elements/HeroOrbitalCard";
 import { HeroSection } from "@/components/elements/HeroSection";
 import LandingHeader from "@/components/elements/LandingHeader";
 import { Section } from "@/components/elements/Section";
@@ -166,61 +167,7 @@ export default function Home() {
           </FadeContainer>
 
           <ZoomContainer once className="relative z-10 w-full lg:max-w-lg">
-            <div className="relative">
-              <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-primary-200/60 blur-2xl" />
-              <div className="absolute -left-10 bottom-6 h-20 w-20 rounded-3xl bg-secondary-200/70 blur-2xl" />
-              <div className="relative rounded-3xl border border-border-card bg-white p-5 shadow-[0_32px_80px_-48px_rgba(15,26,61,0.6)]">
-                <div className="flex items-center gap-2">
-                  <span className="h-2.5 w-2.5 rounded-full bg-red-300" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-yellow-300" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-green-300" />
-                  <Phrase
-                    content="painel.devox"
-                    className="text-xs text-foreground/60"
-                  />
-                </div>
-                <div className="mt-4 space-y-4">
-                  <div className="rounded-2xl bg-gradient-to-br from-primary-50 via-white to-secondary-50 p-4">
-                    <div className="flex items-center justify-between">
-                      <Phrase
-                        content="Squad Plataforma"
-                        className="text-xs text-foreground/70"
-                      />
-                      <span className="text-xs font-medium text-primary-600">
-                        Sprint 08
-                      </span>
-                    </div>
-                    <div className="mt-3 h-2 w-full rounded-full bg-primary-100">
-                      <div className="h-2 w-2/3 rounded-full bg-primary-500" />
-                    </div>
-                  </div>
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="rounded-xl border border-border-card bg-background p-3">
-                      <LightningIcon className="h-5 w-5 text-primary-600" />
-                      <Phrase
-                        content="Entrega contínua"
-                        className="mt-2 text-xs text-foreground/70"
-                      />
-                    </div>
-                    <div className="rounded-xl border border-border-card bg-background p-3">
-                      <ShieldCheckIcon className="h-5 w-5 text-primary-600" />
-                      <Phrase
-                        content="Qualidade contínua"
-                        className="mt-2 text-xs text-foreground/70"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-                  <div className="rounded-full bg-white/80 p-2 shadow">
-                    <PlayCircleIcon
-                      className="h-12 w-12 text-primary-500"
-                      weight="fill"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
+            <HeroOrbitalCard />
           </ZoomContainer>
         </HeroSection>
 
@@ -302,27 +249,84 @@ export default function Home() {
             </FadeContainer>
 
             <ZoomContainer once className="w-full flex justify-center">
-              <div className="relative h-72 w-72 sm:h-80 sm:w-80">
-                <div className="absolute inset-0 rounded-full border border-primary-200/70 bg-white/80" />
-                <div className="absolute inset-8 rounded-full border border-primary-200/70" />
-                <div className="absolute inset-16 rounded-full border border-primary-200/70" />
+              <div
+                id="hero-orbital-card"
+                className="relative h-72 w-72 sm:h-80 sm:w-80 [perspective:1200px]"
+              >
+                {/* White circular surface */}
+                <div className="absolute inset-0 rounded-full bg-white/80" />
+
+                {/* Dashed orbital lines rotating counter-clockwise (reverse),
+                    drawn as SVG strokes so the dash gaps can be widened. */}
+                <div className="absolute inset-0 animate-orbit-counterclockwise">
+                  <svg
+                    viewBox="0 0 100 100"
+                    className="h-full w-full text-primary-200/70"
+                    aria-hidden="true"
+                  >
+                    {[49, 38, 27].map((r) => (
+                      <circle
+                        key={r}
+                        cx="50"
+                        cy="50"
+                        r={r}
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="0.5"
+                        strokeDasharray="1.5 5"
+                        strokeLinecap="round"
+                      />
+                    ))}
+                  </svg>
+                </div>
+
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="h-24 w-24 rounded-full border border-primary-200/70 bg-primary-100/60" />
                 </div>
-                <div className="absolute left-1/2 top-2 -translate-x-1/2 rounded-full bg-white p-2 shadow">
-                  <CodeIcon className="h-5 w-5 text-primary-600" />
-                </div>
-                <div className="absolute right-4 top-20 rounded-full bg-white p-2 shadow">
-                  <ShieldCheckIcon className="h-5 w-5 text-primary-600" />
-                </div>
-                <div className="absolute right-10 bottom-12 rounded-full bg-white p-2 shadow">
-                  <RocketLaunchIcon className="h-5 w-5 text-primary-600" />
-                </div>
-                <div className="absolute left-8 bottom-10 rounded-full bg-white p-2 shadow">
-                  <ChartLineUpIcon className="h-5 w-5 text-primary-600" />
-                </div>
-                <div className="absolute left-4 top-24 rounded-full bg-white p-2 shadow">
-                  <UsersThreeIcon className="h-5 w-5 text-primary-600" />
+
+                {/* Graphic icons orbiting clockwise with translateZ depth;
+                    each icon counter-rotates so it always stays upright. */}
+                <div className="absolute inset-0 transform-gpu [transform-style:preserve-3d] animate-orbit-clockwise">
+                  <div
+                    className="absolute left-1/2 top-2"
+                    style={{ transform: "translateX(-50%) translateZ(26px)" }}
+                  >
+                    <div className="animate-orbit-upright rounded-full bg-white p-2 shadow">
+                      <CodeIcon className="h-5 w-5 text-primary-600" />
+                    </div>
+                  </div>
+                  <div
+                    className="absolute right-4 top-20"
+                    style={{ transform: "translateZ(26px)" }}
+                  >
+                    <div className="animate-orbit-upright rounded-full bg-white p-2 shadow">
+                      <ShieldCheckIcon className="h-5 w-5 text-primary-600" />
+                    </div>
+                  </div>
+                  <div
+                    className="absolute right-10 bottom-12"
+                    style={{ transform: "translateZ(26px)" }}
+                  >
+                    <div className="animate-orbit-upright rounded-full bg-white p-2 shadow">
+                      <RocketLaunchIcon className="h-5 w-5 text-primary-600" />
+                    </div>
+                  </div>
+                  <div
+                    className="absolute left-8 bottom-10"
+                    style={{ transform: "translateZ(26px)" }}
+                  >
+                    <div className="animate-orbit-upright rounded-full bg-white p-2 shadow">
+                      <ChartLineUpIcon className="h-5 w-5 text-primary-600" />
+                    </div>
+                  </div>
+                  <div
+                    className="absolute left-4 top-24"
+                    style={{ transform: "translateZ(26px)" }}
+                  >
+                    <div className="animate-orbit-upright rounded-full bg-white p-2 shadow">
+                      <UsersThreeIcon className="h-5 w-5 text-primary-600" />
+                    </div>
+                  </div>
                 </div>
               </div>
             </ZoomContainer>

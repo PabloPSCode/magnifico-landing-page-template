@@ -144,4 +144,62 @@ button:disabled{
 
 @layer utilities {
   .rc-slider-disabled { background-color: var(--color-background) !important;}
+
+  @keyframes orbit-clockwise {
+    from {
+      transform: rotate(0deg) translateZ(0);
+    }
+
+    to {
+      transform: rotate(360deg) translateZ(28px);
+    }
+  }
+
+  @keyframes orbit-counterclockwise {
+    from {
+      transform: rotate(0deg) translateZ(28px);
+    }
+
+    to {
+      transform: rotate(-360deg) translateZ(0);
+    }
+  }
+
+  @keyframes orbit-counterclockwise-slow {
+    from {
+      transform: rotate(0deg) translateZ(20px);
+    }
+
+    to {
+      transform: rotate(-360deg) translateZ(20px);
+    }
+  }
+
+  @keyframes orbit-upright {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(-360deg);
+    }
+  }
+
+  .animate-orbit-clockwise {
+    animation: orbit-clockwise 24s linear infinite;
+  }
+
+  /* Counter-rotates a child so it stays upright while its parent runs
+     .animate-orbit-clockwise (matched 24s duration). */
+  .animate-orbit-upright {
+    animation: orbit-upright 24s linear infinite;
+  }
+
+  .animate-orbit-counterclockwise {
+    animation: orbit-counterclockwise 30s linear infinite;
+  }
+
+  .animate-orbit-counterclockwise-slow {
+    animation: orbit-counterclockwise-slow 36s linear infinite;
+  }
 }

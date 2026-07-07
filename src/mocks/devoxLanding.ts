@@ -118,7 +118,8 @@ export const devoxTestimonials = [
     name: "Camila Duarte",
     role: "Líder de Produto na Orbita",
     rating: 5,
-    avatar: "/avatars/camila.svg",
+    avatar:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80",
     quote:
       "A Devox assumiu nosso produto crítico com maturidade. Entregas sempre claras e consistentes.",
   },
@@ -126,7 +127,8 @@ export const devoxTestimonials = [
     name: "Lucas Andrade",
     role: "Diretor de Tecnologia na Bytefleet",
     rating: 5,
-    avatar: "/avatars/lucas.svg",
+    avatar:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80",
     quote:
       "Foi a primeira vez que sentimos um squad realmente integrado ao nosso time interno.",
   },
@@ -134,7 +136,8 @@ export const devoxTestimonials = [
     name: "Renata Reis",
     role: "Diretora Digital na Pulsar",
     rating: 5,
-    avatar: "/avatars/renata.svg",
+    avatar:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&q=80",
     quote:
       "A combinação de produto, design e engenharia acelerou nosso roadmap em meses.",
   },
